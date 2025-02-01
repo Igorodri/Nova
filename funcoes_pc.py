@@ -6,55 +6,7 @@ import psutil
 
 
 
-
 #Abrir Funções da Nova
-def welcome():
-    responder = 'Olá, me chamo Nova, sou sua assistente virtual e vim aqui para deixar sua vida um pouquinho mais fácil!'
-    speak(responder)
-
-    print("\n")
-
-def gettime():
-    now = datetime.datetime.now()
-    responder = f'São {now.hour} horas e {now.minute} minutos.'
-    print(responder)
-    speak(responder)
-
-    print("\n")
-
-def desligar_pc():
-    speak("até a próxima")
-    print("desligando o computador...")
-    os.system("shutdown /s /t 0")
-
-    print("\n")
-
-def reiciniar_pc():
-    speak("reiniciando")
-    print("Reiniciando o computador...");
-    os.system("shutdown /r /t 0")
-
-    print("\n")
- 
-def getData():
-    hoje = datetime.datetime.now().strftime("%d/%m/%Y")
-    responder = f'Hoje é dia {hoje}'
-    print(responder)
-    speak(responder)
-
-    print("\n")
-
-
-def ausentar():
-    speak("Até mais tarde!")
-    exit();
-
-    print("\n")
-
-def pedro():
-    print("Vai tomar no cu Pedro seu bosta");
-    speak("Vai tomar no cu Pedro seu bosta")
-
 
 def lista_comandos():
     print("\n\n\n")
@@ -113,25 +65,61 @@ def lista_comandos():
 
     print("25 - Abrir Controlador de Gastos: abrir controlador de gastos ou abrir gastos ou gastos ou gasto\n")
 
-    print("26 - Abrir Steam: abrir steam ou abrir azul\n")
-
-    print("27 - Abrir Xbox: abrir xbox ou verde\n");
-
-    print("28 - Abrir Valorant: abrir jogo de tiro de fadinha ou abrir valorant ou jogo");
-
-    print("29 - Xingar Pedro - Pedro está aqui ou Pedro")
+    print("26 - Xingar Pedro - Pedro está aqui ou Pedro")
 
 
     print("\n\n\n")
 
 
-def speak(text):
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[-2].id)
-    engine.setProperty('rate',200)
-    engine.say(text)
-    engine.runAndWait()
+def welcome():
+    responder = 'Olá, me chamo Nova, sou sua assistente virtual e vim aqui para deixar sua vida um pouquinho mais fácil!'
+    speak(responder)
+    print(responder)
+
+    print("\n")
+
+def gettime():
+    now = datetime.datetime.now()
+    responder = f'São {now.hour} horas e {now.minute} minutos.'
+    print(responder)
+    speak(responder)
+
+    print("\n")
+
+def getData():
+    hoje = datetime.datetime.now().strftime("%d/%m/%Y")
+    responder = f'Hoje é dia {hoje}'
+    print(responder)
+    speak(responder)
+
+    print("\n")
+
+def desligar_pc():
+    speak("até a próxima")
+    print("desligando o computador...")
+    os.system("shutdown /s /t 0")
+
+    print("\n")
+
+def reiciniar_pc():
+    speak("reiniciando")
+    print("Reiniciando o computador...");
+    os.system("shutdown /r /t 0")
+
+    print("\n")
+ 
+
+def ausentar():
+    speak("Até mais tarde!")
+    print("Até mais tarde!")
+    exit();
+
+    print("\n")
+
+
+
+
+
 
 
 
@@ -200,11 +188,7 @@ def abrir_trello():
 
     print("\n")
     
-def nicole_chegou():
-    speak("seja bem vinda nicole.")
-    webbrowser.open('https://www.youtube.com/watch?v=JqIHlDVqUTw')
 
-    print("\n")
 
 
 
@@ -222,7 +206,7 @@ def abrir_opera():
 
     print("\n")
 
-def auto_destruir():
+def fechar_opera():
     nome_processo = 'opera.exe'
 
     
@@ -246,28 +230,27 @@ def abrir_vs():
 
 def abrir_controlador_de_gastos():
     print("Abrindo Controlador de Gastos")
-    caminho_controlador_de_gastos = 'C:/Users/Pichau/Desktop/Igor/gasto_mensais'
+    caminho_controlador_de_gastos = '' #COLOCAR CAMINHO DO EXCEL
     os.startfile(caminho_controlador_de_gastos)
 
     print("\n")
 
-def abrir_valorant():
-    print("Abrindo Valorant")
-    caminho_valorant = "C:/Users/Pichau/Desktop/Jogo/valorant"
-    os.startfile(caminho_valorant)
+#Funções Especiais
+def speak(text):
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[-2].id)
+    engine.setProperty('rate',200)
+    engine.say(text)
+    engine.runAndWait()
+
+def nicole_chegou():
+    speak("seja bem vinda nicole.")
+    webbrowser.open('https://www.youtube.com/watch?v=JqIHlDVqUTw')
 
     print("\n")
 
-def abrir_steam():
-    print("Abrindo Steam")
-    caminho_steam = "C:/Users/Pichau/Desktop/Jogo/steam"
-    os.startfile(caminho_steam)
+def pedro():
+    print("Vai tomar no cu Pedro seu bosta");
+    speak("Vai tomar no cu Pedro seu bosta")
 
-    print("\n")
-
-def abrir_xbox():
-    print("Abrindo Xbox")
-    caminho_xbox = ""
-    os.startfile(caminho_xbox)
-
-    print("\n")

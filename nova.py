@@ -1,6 +1,6 @@
 import pyttsx3
 import speech_recognition as sr
-from funcoes_pc import welcome, gettime, getData, abrir_google, abrir_youtube, abrir_chatgpt, abrir_whatsapp, abrir_hostinger, abrir_netflix, abrir_gmail, abrir_steam, abrir_xbox, abrir_valorant, desligar_pc, abrir_controlador_de_gastos, abrir_ifood, nicole_chegou, abrir_instagram, auto_destruir, reiciniar_pc, abrir_opera, ausentar, abrir_vs, abrir_trello, lista_comandos,speak, pedro
+from funcoes_pc import welcome, gettime, getData, abrir_google, abrir_youtube, abrir_chatgpt, abrir_whatsapp, abrir_hostinger, abrir_netflix, abrir_gmail, desligar_pc, abrir_controlador_de_gastos, abrir_ifood, nicole_chegou, abrir_instagram, fechar_opera, reiciniar_pc, abrir_opera, ausentar, abrir_vs, abrir_trello, lista_comandos,speak, pedro
 import webbrowser
 
 
@@ -11,8 +11,11 @@ recognizer = sr.Recognizer()
 
 def iniciar_comandos():
     speak("Me chamo Nova, em que posso ajudar?");
+    speak("Segue lista de comandos: ");
+    lista_comandos();
     while True:
             print("Aguardando comando...")
+
             with sr.Microphone() as source:
                 recognizer.adjust_for_ambient_noise(source)
                 audio = recognizer.listen(source)
@@ -46,9 +49,6 @@ def iniciar_comandos():
 
                     elif comando == 'pedro está aqui' or comando == 'pedro':
                         pedro()
-
-
-
 
 
 
@@ -177,19 +177,10 @@ def iniciar_comandos():
                         abrir_opera()
                         
                     elif comando == 'fechar opera':
-                        auto_destruir()
+                        fechar_opera()
 
                     elif comando == 'abrir controlador de gastos' or comando == 'abrir gastos' or comando == 'gastos' or comando == 'gasto':
                         abrir_controlador_de_gastos()
-
-                    elif comando == 'abrir steam' or comando == 'abrir azul':
-                        abrir_steam()
-
-                    elif comando == 'abrir xbox' or comando == 'verde':
-                        abrir_xbox()
-
-                    elif comando == 'abrir jogo de tiro de fadinha' or comando == 'abrir valorant' or comando == 'jogo':
-                        abrir_valorant()
 
                 except sr.UnknownValueError:
                     print("Não entendi o que você disse. Tente novamente.")
